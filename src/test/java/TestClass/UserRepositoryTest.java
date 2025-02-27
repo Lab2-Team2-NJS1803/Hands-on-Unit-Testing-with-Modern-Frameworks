@@ -26,7 +26,6 @@ class UserRepositoryTest {
 
         assertNotNull(user.getId(), "ID not auto create !!");
 
-
         boolean exists = userRepository.existsUserByUsername("admin");
 
         assertTrue(exists);
@@ -40,4 +39,5 @@ class UserRepositoryTest {
         // Expected result: false
         assertFalse(exists);
     }
+
 }

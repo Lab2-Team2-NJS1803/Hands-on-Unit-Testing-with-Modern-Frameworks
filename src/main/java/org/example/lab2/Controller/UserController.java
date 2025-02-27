@@ -24,7 +24,7 @@ public class UserController {
     private UserRepository userReponsitory;
 
     @PostMapping
-    ApiResponse<UserResponse> createUser(@RequestBody @Valid UserCreateRequest user) {
+    public ApiResponse<UserResponse> createUser(@RequestBody @Valid UserCreateRequest user) {
         ApiResponse<UserResponse> response = new ApiResponse<>();
 
         if(userReponsitory.existsUserByUsername(user.getUsername())) {
@@ -36,28 +36,28 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    ApiResponse<UserResponse> updateUser(@PathVariable @Valid String id, @RequestBody UserUpdateRequest user) {
+    public ApiResponse<UserResponse> updateUser(@PathVariable @Valid String id, @RequestBody UserUpdateRequest user) {
         ApiResponse<UserResponse> response = new ApiResponse<>();
         response.setResult(userService.updateUser(id, user));
         return response;
     }
 
     @GetMapping
-    ApiResponse<List<UserResponse>> getUsers() {
+    public ApiResponse<List<UserResponse>> getUsers() {
         ApiResponse<List<UserResponse>> response = new ApiResponse<>();
         response.setResult(userService.getUsers());
         return response;
     }
 
     @GetMapping("/{id}")
-    ApiResponse<UserResponse> getUserById(@PathVariable String id) {
+    public ApiResponse<UserResponse> getUserById(@PathVariable String id) {
         ApiResponse<UserResponse> response = new ApiResponse<>();
         response.setResult(userService.getUserById(id));
         return response;
     }
 
     @DeleteMapping("/{id}")
-    ApiResponse<String> deleteUser(@PathVariable String id) {
+    public ApiResponse<String> deleteUser(@PathVariable String id) {
         ApiResponse<String> response = new ApiResponse<>();
         userService.deleteUser(id);
         response.setResult("Delete user successfully");

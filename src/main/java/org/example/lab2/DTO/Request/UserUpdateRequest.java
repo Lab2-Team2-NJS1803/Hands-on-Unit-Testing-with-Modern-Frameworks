@@ -15,7 +15,7 @@ import java.util.Date;
 @Builder
 @ToString
 public class UserUpdateRequest implements Serializable {
-
+    String username;
     @Size(min = 1, max = 18)
     String password;
     String firstname;
