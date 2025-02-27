@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.example.lab2.DTO.Request.UserCreateRequest;
+import org.example.lab2.DTO.Request.UserUpdateRequest;
 import org.example.lab2.DTO.Response.UserResponse;
 import org.example.lab2.Entity.User;
 import org.example.lab2.Mapper.UserMapper;
-import org.example.lab2.Reponsitory.UserReponsitory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.lab2.Reponsitory.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @FieldDefaults(makeFinal = true, level = lombok.AccessLevel.PRIVATE)
 public class UserService {
 
-    UserReponsitory userReponsitory;
+    UserRepository userReponsitory;
     PasswordEncoder passwordEncoder;
     UserMapper userMapper;
 
@@ -40,6 +40,27 @@ public class UserService {
         return userReponsitory.findAll().stream()
                 .map(user -> userMapper.toUserResponse(user))
                 .collect(Collectors.toList());
+    }
+
+    public UserResponse getUserById(String id) {
+        log.info("Get user by id: {}", id);
+        return userMapper.toUserResponse(userReponsitory.findById(id).get());
+    }
+
+    public void deleteUser(String id) {
+        log.info("Delete user by id: {}", id);
+        userReponsitory.deleteById(id);
+    }
+
+    public UserResponse updateUser(String id, UserUpdateRequest request) {
+
+        User user = userReponsitory.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        userMapper.updateUser(user, request);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+
+        return userMapper.toUserResponse(userReponsitory.save(user));
     }
 
 }

@@ -1,9 +1,6 @@
 package org.example.lab2.DTO.Response;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
@@ -13,10 +10,11 @@ import java.util.Date;
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 @Builder
+@ToString
 public class UserResponse {
-    String id;
+//    String id;
     String username;
-    String password;
+//    String password;
     String firstname;
     String lastname;
     Date dob;

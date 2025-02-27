@@ -2,6 +2,7 @@ package org.example.lab2.Mapper;
 
 
 import org.example.lab2.DTO.Request.UserCreateRequest;
+import org.example.lab2.DTO.Request.UserUpdateRequest;
 import org.example.lab2.DTO.Response.UserResponse;
 import org.example.lab2.Entity.User;
 import org.mapstruct.Mapper;
@@ -15,6 +16,6 @@ public interface UserMapper {
     UserResponse toUserResponse(User user);
 
 //    @Mapping(target = "roles", ignore = true)
-//    void updateUser(@MappingTarget User user, UserUpdateRequest request);
+    void updateUser(@MappingTarget User user, UserUpdateRequest request);
 
 }

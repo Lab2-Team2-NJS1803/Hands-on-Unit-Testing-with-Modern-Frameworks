@@ -11,14 +11,12 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
 @ToString
-public class UserCreateRequest implements Serializable {
-    String id;
-    @Size(min = 1, max = 18 , message = "Username must be between 1 and 18 characters")
-    String username;
-    @Size(min = 1, max = 18 , message = "Password must be between 1 and 18 characters")
+public class UserUpdateRequest implements Serializable {
+
+    @Size(min = 1, max = 18)
     String password;
     String firstname;
     String lastname;
