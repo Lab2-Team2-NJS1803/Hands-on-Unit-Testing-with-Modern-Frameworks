@@ -148,4 +148,28 @@ class UserControllerTest {
         assertTrue(violations.stream().anyMatch(v -> v.getMessage().contains("Password must be between 1 and 18 characters")));
     }
 
+    // Successfully update user with valid ID and request body
+    @Test
+    public void test_update_user_success() {
+        String userId = "123";
+        UserUpdateRequest updateRequest = UserUpdateRequest.builder()
+                .username("testuser")
+                .password("password123")
+                .firstname("John")
+                .lastname("Doe")
+                .build();
+
+        UserResponse expectedResponse = new UserResponse();
+        expectedResponse.setId(userId);
+        expectedResponse.setUsername("testuser");
+
+        when(userService.updateUser(userId, updateRequest)).thenReturn(expectedResponse);
+
+        ApiResponse<UserResponse> response = userController.updateUser(userId, updateRequest);
+
+        assertNotNull(response);
+        assertEquals(expectedResponse, response.getResult());
+        verify(userService).updateUser(userId, updateRequest);
+    }
+
 }

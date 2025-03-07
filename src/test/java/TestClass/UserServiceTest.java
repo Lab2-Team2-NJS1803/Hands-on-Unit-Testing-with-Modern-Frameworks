@@ -1,4 +1,4 @@
-package org.example.lab2.Service;
+package TestClass;
 
 import org.example.lab2.DTO.Request.UserCreateRequest;
 import org.example.lab2.DTO.Request.UserUpdateRequest;
@@ -6,6 +6,7 @@ import org.example.lab2.DTO.Response.UserResponse;
 import org.example.lab2.Entity.User;
 import org.example.lab2.Mapper.UserMapper;
 import org.example.lab2.Reponsitory.UserRepository;
+import org.example.lab2.Service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -102,6 +103,7 @@ class UserServiceTest {
         assertEquals("123", response.getId());
         verify(userRepository, times(1)).findById("123");
     }
+
 
     @Test
     void testDeleteUser() {
