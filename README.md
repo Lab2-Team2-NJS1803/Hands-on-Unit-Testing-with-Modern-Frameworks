@@ -63,6 +63,24 @@ mvn verify
 ```
 Kết quả báo cáo coverage nằm trong `target/site/jacoco/index.html`. Đảm bảo **coverage >= 80%**.
 
-## 6. Kết luận
+## 6. Cách xem Database với H2
+Hướng dẫn truy cập H2 Console
+Nếu sử dụng H2 Database (In-Memory), bạn có thể truy cập giao diện quản lý bằng cách:
+
+Mở trình duyệt và truy cập:
+
+http://localhost:8080/lab2/h2-console
+
+Điền thông tin kết nối:
+
+JDBC URL: jdbc:h2:mem:testdb
+
+User: sa
+
+Password: 123456
+
+Nhấn Connect để xem và quản lý dữ liệu trong database
+
+## 7. Kết luận
 Dự án này giúp hiểu rõ về cách xây dựng REST API với Spring Boot, kiểm thử bằng JUnit & Mockito, đồng thời đảm bảo chất lượng mã với JaCoCo.
 
