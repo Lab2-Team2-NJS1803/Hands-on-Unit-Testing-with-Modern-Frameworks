@@ -73,6 +73,27 @@ Password: 123456
 
 Nhấn Connect để xem và quản lý dữ liệu trong database
 
-## 7. Kết luận
+## 7 .Giải thích về Test Coverage
+   🎯 Sử dụng JaCoCo để đo mức độ kiểm thử
+   Statement Coverage: Xác định tỷ lệ dòng code được thực thi.
+   Branch Coverage: Đảm bảo mọi nhánh điều kiện (if/else) được kiểm thử.
+   Method & Class Coverage: Đảm bảo mỗi method & class được kiểm thử.
+   Mục tiêu là đạt ít nhất 80% test coverage, giúp giảm thiểu lỗi tiềm ẩn.
+
+## 8. Best Practices được áp dụng
+   ✅ Separation of Concerns (Phân tách logic rõ ràng)
+   Controller: Xử lý request từ client.
+   Service: Xử lý logic nghiệp vụ.
+   Repository: Làm việc với database.
+   ✅ Unit Testing với Mocking
+   Mockito được sử dụng để mô phỏng dữ liệu, giảm sự phụ thuộc vào database thực.
+   ✅ Code Readability & Maintainability
+   Lombok giúp giảm code lặp bằng cách tự động tạo getter/setter.
+   MapStruct hỗ trợ chuyển đổi giữa DTO và Entity dễ dàng.
+   ✅ CI/CD Ready
+   Maven được cấu hình để chạy test tự động khi build.
+   JaCoCo đảm bảo coverage đạt yêu cầu trước khi deploy.
+
+## 9. Kết luận
 Dự án này giúp hiểu rõ về cách xây dựng REST API với Spring Boot, kiểm thử bằng JUnit & Mockito, đồng thời đảm bảo chất lượng mã với JaCoCo.
 
