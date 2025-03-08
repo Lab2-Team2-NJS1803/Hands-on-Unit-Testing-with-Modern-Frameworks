@@ -28,16 +28,8 @@ Nguyễn Huy Hoàng - SE170263
 - **JaCoCo** (Test coverage)
 
 ## 3. Cài đặt & Chạy chương trình
-### 3.1. Cấu hình cơ sở dữ liệu (MySQL)
-Chỉnh sửa file `application.properties`:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/lab2_db
-spring.datasource.username=root
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
-```
 
-### 3.2. Chạy ứng dụng
+
 ```bash
 mvn spring-boot:run
 ```
